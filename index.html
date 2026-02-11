@@ -39,7 +39,32 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(5,5,8,.7);backdr
 .hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:140%;height:80%;background:radial-gradient(ellipse at center,var(--glow-blue) 0%,var(--glow-purple) 30%,transparent 65%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gradient);opacity:.3}
 /* grid lines */
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;opacity:.3;mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;opacity:0;mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%);animation:gridPulseIn 2.5s ease forwards}
+@keyframes gridPulseIn{0%{opacity:0;background-size:120px 120px}60%{opacity:.4}100%{opacity:.25;background-size:80px 80px}}
+/* grid shimmer */
+.hero-grid::after{content:'';position:absolute;inset:0;background:radial-gradient(circle 400px at var(--grid-x,50%) var(--grid-y,50%),rgba(59,130,246,.06),transparent);pointer-events:none}
+
+/* floating orbs */
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:0;animation:orbFloat 20s ease-in-out infinite,orbFadeIn 2s ease forwards}
+.hero-orb--blue{width:500px;height:500px;background:rgba(59,130,246,.12);top:-10%;left:-5%;animation-delay:0s,.1s}
+.hero-orb--purple{width:400px;height:400px;background:rgba(124,58,237,.1);top:20%;right:-8%;animation-delay:-7s,.3s}
+.hero-orb--pink{width:350px;height:350px;background:rgba(236,72,153,.08);bottom:-5%;left:30%;animation-delay:-13s,.5s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(40px,-30px) scale(1.05)}50%{transform:translate(-20px,40px) scale(.95)}75%{transform:translate(-40px,-20px) scale(1.03)}}
+@keyframes orbFadeIn{from{opacity:0}to{opacity:1}}
+
+/* hero text reveal */
+.hero-badge{opacity:0;transform:translateY(20px);animation:heroReveal .8s cubic-bezier(.16,1,.3,1) .4s forwards}
+.hero h1 .line{display:block;opacity:0;transform:translateY(40px);animation:heroReveal .9s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .line:nth-child(1){animation-delay:.6s}
+.hero h1 .line:nth-child(2){animation-delay:.75s}
+.hero h1 .line:nth-child(3){animation-delay:.9s}
+.hero p{opacity:0;transform:translateY(25px);animation:heroReveal .8s cubic-bezier(.16,1,.3,1) 1.15s forwards}
+.hero-buttons{opacity:0;transform:translateY(25px);animation:heroReveal .8s cubic-bezier(.16,1,.3,1) 1.35s forwards}
+@keyframes heroReveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* gradient shimmer on headline */
+.hero h1 .gradient{background-size:200% 200%;animation:gradientShimmer 4s ease infinite 1.2s}
+@keyframes gradientShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:10px 24px;border-radius:100px;font-size:13px;font-weight:600;color:var(--text-mid);margin-bottom:48px;position:relative;z-index:1}
 .hero-badge i{color:var(--blue);width:16px;height:16px}
 .hero-badge span{color:var(--blue)}
@@ -139,8 +164,7 @@ footer{border-top:1px solid var(--border);padding:80px 48px 48px;background:var(
 .animate.visible{opacity:1;transform:translateY(0)}
 .service-card.animate,.why-card.animate,.stat.animate,.pf.animate{transform:translateY(30px)}
 .service-card.animate.visible,.why-card.animate.visible,.stat.animate.visible,.pf.animate.visible{opacity:1;transform:translateY(0)}
-.hero-grid{animation:gridFade 2s ease forwards}
-@keyframes gridFade{from{opacity:0}to{opacity:.3}}
+/* old gridFade removed — using gridPulseIn now */
 .pv-icon.animate{transform:scale(.8) translateY(20px)}
 .pv-icon.animate.visible{transform:scale(1) translateY(0)}
 .stats-bar .stat{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
@@ -187,12 +211,15 @@ footer{border-top:1px solid var(--border);padding:80px 48px 48px;background:var(
 </nav>
 
 <section class="hero">
+  <div class="hero-orb hero-orb--blue"></div>
+  <div class="hero-orb hero-orb--purple"></div>
+  <div class="hero-orb hero-orb--pink"></div>
   <div class="hero-grid"></div>
   <div class="hero-badge">
     <i data-lucide="zap"></i>
     <span>Now Available</span> — AI Voice Agents with sub-second response
   </div>
-  <h1>Your AI<br>workforce.<br><span class="gradient">Built to perform.</span></h1>
+  <h1><span class="line">Your AI</span><span class="line">workforce.</span><span class="line gradient">Built to perform.</span></h1>
   <p>AI agents, cloud migration, and IT modernization that transform how businesses operate — from call centers to infrastructure.</p>
   <div class="hero-buttons">
     <a href="https://connect.arxyn.com" class="btn-primary"><i data-lucide="arrow-right"></i> Talk to Us</a>
@@ -452,6 +479,16 @@ footer{border-top:1px solid var(--border);padding:80px 48px 48px;background:var(
 
 <script>
 lucide.createIcons();
+
+// Subtle grid mouse-follow glow
+const heroGrid = document.querySelector('.hero-grid');
+if (heroGrid) {
+  document.querySelector('.hero').addEventListener('mousemove', (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    heroGrid.style.setProperty('--grid-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+    heroGrid.style.setProperty('--grid-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+  });
+}
 
 // Intersection Observer for scroll animations
 const observer = new IntersectionObserver((entries) => {
