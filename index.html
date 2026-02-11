@@ -95,6 +95,30 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AI File Organizer",
+  "operatingSystem": "macOS",
+  "applicationCategory": "UtilitiesApplication",
+  "applicationSubCategory": "File Management",
+  "description": "AI-powered file organizer for macOS. Smart renaming, folder routing, OCR, and vision analysis. Works with OpenAI, Claude, Gemini, or free local AI via Ollama.",
+  "offers": {
+    "@type": "Offer",
+    "price": "9.99",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://apps.apple.com/us/app/ai-file-organizer/id6758020307?mt=12"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Arxyn Inc.",
+    "url": "https://www.arxyn.com"
+  },
+  "installUrl": "https://apps.apple.com/us/app/ai-file-organizer/id6758020307?mt=12"
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -225,6 +249,37 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(5,5,8,.7);backdr
 .why-card h3{font-size:24px;font-weight:900;margin-bottom:12px;letter-spacing:-.5px}
 .why-card p{font-size:15px;color:var(--text-dim);line-height:1.7}
 
+/* === PRODUCT === */
+.product-section{border-top:1px solid var(--border)}
+.product-card{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--border);border-radius:0;overflow:hidden}
+.product-info{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
+.product-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);padding:6px 16px;border-radius:50px;font-size:12px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px;width:fit-content}
+.product-info h3{font-size:36px;font-weight:900;letter-spacing:-1.5px;margin-bottom:16px}
+.product-desc{font-size:16px;color:var(--text-dim);line-height:1.7;margin-bottom:28px;max-width:480px}
+.product-features{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+.pf-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.12);padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;color:var(--text-mid)}
+.pf-tag i{width:15px;height:15px;color:var(--blue)}
+.product-actions{display:flex;gap:16px;flex-wrap:wrap}
+.product-visual{border-left:1px solid var(--border);background:var(--surface-2);display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden}
+.product-visual::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%)}
+.pv-mockup{background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;width:100%;max-width:420px;position:relative;z-index:1}
+.pv-mockup-bar{display:flex;gap:6px;padding:12px 16px;background:rgba(255,255,255,.02);border-bottom:1px solid var(--border)}
+.pv-mockup-bar span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.08)}
+.pv-mockup-bar span:first-child{background:rgba(255,99,99,.4)}
+.pv-mockup-bar span:nth-child(2){background:rgba(255,199,0,.4)}
+.pv-mockup-bar span:last-child{background:rgba(0,199,99,.4)}
+.pv-mockup-body{padding:16px}
+.pv-file{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:8px;font-size:12px;font-weight:500;color:var(--text-dim);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.pv-file:last-child{border-bottom:none}
+.pv-file i{width:16px;height:16px;color:var(--text-dim);flex-shrink:0}
+.pv-arrow{color:var(--blue);font-weight:700;font-size:14px}
+.pv-renamed{color:var(--blue);font-weight:700}
+@media(max-width:768px){
+  .product-card{grid-template-columns:1fr}
+  .product-visual{border-left:none;border-top:1px solid var(--border)}
+  .product-info{padding:40px 24px}
+}
+
 /* === CTA === */
 .cta-section{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px;position:relative;overflow:hidden;border-top:1px solid var(--border)}
 .cta-section::before{content:'';position:absolute;bottom:-20%;left:50%;transform:translateX(-50%);width:120%;height:80%;background:radial-gradient(ellipse at center,var(--glow-blue) 0%,var(--glow-purple) 30%,transparent 60%);pointer-events:none}
@@ -295,6 +350,7 @@ footer{border-top:1px solid var(--border);padding:80px 48px 48px;background:var(
       <a href="index.html#services">Services</a>
       <a href="index.html#platform">Platform</a>
       <a href="index.html#why">Why Arxyn</a>
+      <a href="index.html#products">Products</a>
       <a href="contact.html">Contact</a>
       <a href="https://connect.arxyn.com" class="nav-cta">Get Started</a>
     </div>
@@ -518,6 +574,40 @@ footer{border-top:1px solid var(--border);padding:80px 48px 48px;background:var(
   </div>
 </section>
 
+<section class="section-full product-section" id="products">
+  <div class="section-label">Products</div>
+  <h2>Tools we've <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">shipped.</span></h2>
+  <p class="subtitle">Real products, built in-house, solving real problems.</p>
+
+  <div class="product-card">
+    <div class="product-info">
+      <div class="product-badge"><i data-lucide="apple" style="width:14px;height:14px"></i> macOS App</div>
+      <h3>AI File Organizer</h3>
+      <p class="product-desc">Transform messy folders into perfectly named, sorted documents. Smart renaming, folder routing, OCR, and vision analysis — powered by OpenAI, Claude, Gemini, or free local AI via Ollama.</p>
+      <div class="product-features">
+        <div class="pf-tag"><i data-lucide="scan-text"></i> OCR & Vision</div>
+        <div class="pf-tag"><i data-lucide="folder-tree"></i> Smart Routing</div>
+        <div class="pf-tag"><i data-lucide="sparkles"></i> AI Renaming</div>
+        <div class="pf-tag"><i data-lucide="lock"></i> Privacy-First</div>
+      </div>
+      <div class="product-actions">
+        <a href="https://apps.apple.com/us/app/ai-file-organizer/id6758020307?mt=12" class="btn-primary" target="_blank"><i data-lucide="download"></i> Get on Mac App Store — $9.99</a>
+        <a href="https://maguilar631697.github.io/aifileorganizer/" class="btn-secondary" target="_blank"><i data-lucide="external-link"></i> Learn More</a>
+      </div>
+    </div>
+    <div class="product-visual">
+      <div class="pv-mockup">
+        <div class="pv-mockup-bar"><span></span><span></span><span></span></div>
+        <div class="pv-mockup-body">
+          <div class="pv-file"><i data-lucide="file-text"></i> invoice_scan_2024.pdf <span class="pv-arrow">→</span> <span class="pv-renamed">2024-03-15_Acme-Corp_Invoice-#1247.pdf</span></div>
+          <div class="pv-file"><i data-lucide="image"></i> IMG_4392.heic <span class="pv-arrow">→</span> <span class="pv-renamed">2024-06-20_Product-Photo_Blue-Widget.jpg</span></div>
+          <div class="pv-file"><i data-lucide="file-spreadsheet"></i> report.xlsx <span class="pv-arrow">→</span> <span class="pv-renamed">Q3-2024_Sales-Report_Northeast.xlsx</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta-section">
   <h2>Ready to<br>transform?</h2>
   <p>Tell us what you're working on.<br>We'll show you what's possible.</p>
@@ -551,8 +641,14 @@ footer{border-top:1px solid var(--border);padding:80px 48px 48px;background:var(
       <a href="#platform">Security</a>
     </div>
     <div class="footer-col">
+      <h4>Products</h4>
+      <a href="https://apps.apple.com/us/app/ai-file-organizer/id6758020307?mt=12">AI File Organizer</a>
+      <a href="https://connect.arxyn.com">Arxyn Connect</a>
+    </div>
+    <div class="footer-col">
       <h4>Company</h4>
       <a href="https://www.linkedin.com/company/arxyn">About</a>
+      <a href="index.html#products">Products</a>
       <a href="contact.html">Contact</a>
       <a href="https://support.arxyn.com">Support</a>
       <a href="https://support.arxyn.com/support/solutions/articles/174000257025-privacy-policy">Privacy Policy</a>
