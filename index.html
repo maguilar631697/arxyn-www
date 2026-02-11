@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arxyn — AI-Powered Business Transformation</title>
+<meta name="description" content="Arxyn delivers AI voice agents, cloud migration, modernization, and IT services that transform how businesses operate.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050508;--surface:#0a0a10;--surface-2:#0f0f18;--surface-3:#151520;
+  --text:#f0f0f5;--text-dim:#7a7a95;--text-mid:#a0a0b8;
+  --blue:#3b82f6;--purple:#7c3aed;--pink:#ec4899;--orange:#f97316;--cyan:#06b6d4;
+  --gradient:linear-gradient(135deg,#3b82f6,#7c3aed,#ec4899,#f97316);
+  --gradient-v:linear-gradient(180deg,#3b82f6,#7c3aed);
+  --glow-blue:rgba(59,130,246,.12);--glow-purple:rgba(124,58,237,.1);
+  --border:rgba(255,255,255,.06);--border-hover:rgba(255,255,255,.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--blue);text-decoration:none}
+i[data-lucide]{display:inline-block;vertical-align:middle}
+
+/* === NAV === */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(5,5,8,.7);backdrop-filter:blur(30px);border-bottom:1px solid var(--border)}
+.nav-inner{padding:0 48px;height:80px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{height:36px;opacity:.95;transition:opacity .2s}
+.nav-logo:hover{opacity:1}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{color:var(--text-mid);font-size:16px;font-weight:600;letter-spacing:.3px;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:rgba(59,130,246,.15)!important;color:var(--blue)!important;padding:12px 32px;border-radius:10px;border:1px solid rgba(59,130,246,.3);font-weight:700;transition:all .2s;font-size:15px}
+.nav-cta:hover{background:var(--blue)!important;color:#fff!important}
+
+/* === HERO === */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:140%;height:80%;background:radial-gradient(ellipse at center,var(--glow-blue) 0%,var(--glow-purple) 30%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gradient);opacity:.3}
+/* grid lines */
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;opacity:.3;mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%)}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:10px 24px;border-radius:100px;font-size:13px;font-weight:600;color:var(--text-mid);margin-bottom:48px;position:relative;z-index:1}
+.hero-badge i{color:var(--blue);width:16px;height:16px}
+.hero-badge span{color:var(--blue)}
+.hero h1{font-family:'Inter',sans-serif;font-size:clamp(56px,9vw,120px);font-weight:900;line-height:.95;letter-spacing:-5px;margin-bottom:36px;position:relative;z-index:1}
+.hero h1 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:22px;color:var(--text-dim);max-width:650px;margin:0 auto 56px;line-height:1.7;font-weight:400;position:relative;z-index:1}
+.hero-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-primary{background:#fff;color:#000;padding:18px 44px;border-radius:12px;font-weight:800;font-size:16px;transition:all .25s;display:inline-flex;align-items:center;gap:12px;border:none;cursor:pointer;letter-spacing:-.3px}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 60px rgba(255,255,255,.15);color:#000}
+.btn-primary i{width:18px;height:18px}
+.btn-secondary{background:transparent;color:#fff;padding:18px 44px;border-radius:12px;font-weight:700;font-size:16px;border:1px solid var(--border-hover);transition:all .25s;display:inline-flex;align-items:center;gap:12px}
+.btn-secondary:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04);transform:translateY(-2px);color:#fff}
+
+/* === STATS BAR === */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{text-align:center;padding:56px 24px;border-right:1px solid var(--border);transition:background .3s}
+.stat:last-child{border-right:none}
+.stat:hover{background:rgba(255,255,255,.02)}
+.stat-num{font-family:'Inter',sans-serif;font-size:52px;font-weight:900;letter-spacing:-3px;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:13px;color:var(--text-dim);margin-top:8px;font-weight:500;text-transform:uppercase;letter-spacing:2px}
+
+/* === SECTION === */
+.section-full{padding:140px 48px}
+.section-label{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:4px;margin-bottom:20px}
+.section-full h2{font-family:'Inter',sans-serif;font-size:clamp(40px,6vw,72px);font-weight:900;letter-spacing:-3px;margin-bottom:20px;line-height:1.05}
+.section-full .subtitle{font-size:20px;color:var(--text-dim);max-width:650px;margin-bottom:72px;line-height:1.7}
+
+/* === SERVICES === */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:0}
+.service-card{background:var(--surface);padding:40px 32px;transition:all .4s;position:relative;overflow:hidden}
+.service-card:hover{background:var(--surface-2)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient);opacity:0;transition:opacity .3s}
+.service-card:hover::before{opacity:1}
+.service-icon{width:52px;height:52px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--blue);transition:all .3s}
+.service-card:hover .service-icon{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.3)}
+.service-icon i{width:24px;height:24px;stroke-width:1.8}
+.service-card h3{font-size:18px;font-weight:800;margin-bottom:10px;letter-spacing:-.3px}
+.service-card p{font-size:14px;color:var(--text-dim);line-height:1.7}
+
+/* === PLATFORM === */
+.platform-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.platform-left{padding-right:64px}
+.platform-features{display:flex;flex-direction:column;gap:0}
+.pf{display:flex;gap:20px;padding:28px 0;border-bottom:1px solid var(--border)}
+.pf:last-child{border-bottom:none}
+.pf-icon{width:48px;height:48px;min-width:48px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.12);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.pf-icon i{width:22px;height:22px;stroke-width:1.8}
+.pf h4{font-weight:800;margin-bottom:4px;font-size:16px;letter-spacing:-.2px}
+.pf p{font-size:14px;color:var(--text-dim);line-height:1.6}
+.platform-visual{border-left:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 48px;position:relative;overflow:hidden}
+.platform-visual::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;background:radial-gradient(circle,var(--glow-blue) 0%,transparent 65%);pointer-events:none}
+.pv-icon{width:100px;height:100px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:28px;display:flex;align-items:center;justify-content:center;margin-bottom:32px;color:var(--blue);position:relative;z-index:1}
+.pv-icon i{width:44px;height:44px;stroke-width:1.2}
+.platform-visual h3{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:700;letter-spacing:3px;margin-bottom:12px;position:relative;z-index:1}
+.platform-visual>p{color:var(--text-dim);font-size:15px;position:relative;z-index:1;text-align:center}
+.pv-stats{display:flex;gap:48px;margin-top:40px;position:relative;z-index:1}
+.pv-stat{text-align:center}
+.pv-stat-num{font-size:32px;font-weight:900;letter-spacing:-1px;color:#fff}
+.pv-stat-label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+
+/* === WHY === */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.why-card{background:var(--surface);padding:56px 40px;transition:all .3s}
+.why-card:hover{background:var(--surface-2)}
+.why-num{font-family:'Orbitron',sans-serif;font-size:72px;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:.15;margin-bottom:16px;line-height:1}
+.why-card h3{font-size:24px;font-weight:900;margin-bottom:12px;letter-spacing:-.5px}
+.why-card p{font-size:15px;color:var(--text-dim);line-height:1.7}
+
+/* === CTA === */
+.cta-section{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px;position:relative;overflow:hidden;border-top:1px solid var(--border)}
+.cta-section::before{content:'';position:absolute;bottom:-20%;left:50%;transform:translateX(-50%);width:120%;height:80%;background:radial-gradient(ellipse at center,var(--glow-blue) 0%,var(--glow-purple) 30%,transparent 60%);pointer-events:none}
+.cta-section h2{font-size:clamp(44px,7vw,80px);font-weight:900;letter-spacing:-3px;margin-bottom:24px;line-height:1;position:relative;z-index:1}
+.cta-section p{color:var(--text-dim);font-size:20px;max-width:500px;margin:0 auto 56px;position:relative;z-index:1}
+
+/* === FOOTER === */
+footer{border-top:1px solid var(--border);padding:80px 48px 48px;background:var(--surface)}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px}
+.footer-brand{}
+.footer-brand img{height:40px;margin-bottom:20px;filter:invert(1)}
+.footer-mission{font-size:16px;color:var(--text-dim);line-height:1.7;max-width:360px;margin-bottom:20px}
+.footer-social{display:flex;gap:16px}
+.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);transition:all .2s}
+.footer-social a:hover{background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.3);color:var(--blue)}
+.footer-social a i{width:18px;height:18px}
+.footer-col h4{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;color:var(--text)}
+.footer-col a{display:block;color:var(--text-dim);font-size:15px;font-weight:500;padding:6px 0;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px}
+.footer-copy{color:var(--text-dim);font-size:14px}
+.footer-legal{display:flex;gap:24px}
+.footer-legal a{color:var(--text-dim);font-size:14px;font-weight:500}
+.footer-legal a:hover{color:#fff}
+
+/* === ANIMATIONS === */
+.animate{opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.animate.visible{opacity:1;transform:translateY(0)}
+.service-card.animate,.why-card.animate,.stat.animate,.pf.animate{transform:translateY(30px)}
+.service-card.animate.visible,.why-card.animate.visible,.stat.animate.visible,.pf.animate.visible{opacity:1;transform:translateY(0)}
+.hero-grid{animation:gridFade 2s ease forwards}
+@keyframes gridFade{from{opacity:0}to{opacity:.3}}
+.pv-icon.animate{transform:scale(.8) translateY(20px)}
+.pv-icon.animate.visible{transform:scale(1) translateY(0)}
+.stats-bar .stat{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.stats-bar.visible .stat{opacity:1;transform:translateY(0)}
+.stats-bar.visible .stat:nth-child(1){transition-delay:0ms}
+.stats-bar.visible .stat:nth-child(2){transition-delay:100ms}
+.stats-bar.visible .stat:nth-child(3){transition-delay:200ms}
+.stats-bar.visible .stat:nth-child(4){transition-delay:300ms}
+
+/* === MOBILE === */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-inner,.section-full{padding-left:24px;padding-right:24px}
+}
+@media(max-width:768px){
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding:100px 24px 60px;min-height:90vh}
+  .hero h1{letter-spacing:-3px}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:36px 16px}
+  .services-grid{grid-template-columns:1fr}
+  .platform-grid{grid-template-columns:1fr}
+  .platform-visual{border-left:none;border-top:1px solid var(--border)}
+  .why-grid{grid-template-columns:1fr}
+  .section-full{padding:80px 24px}
+  footer{padding:48px 24px 32px}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html"><img src="arxyn-logo.png" alt="Arxyn" class="nav-logo" style="filter:invert(1) brightness(2)"></a>
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#platform">Platform</a>
+      <a href="index.html#why">Why Arxyn</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://connect.arxyn.com" class="nav-cta">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-badge">
+    <i data-lucide="zap"></i>
+    <span>Now Available</span> — AI Voice Agents with sub-second response
+  </div>
+  <h1>Your AI<br>workforce.<br><span class="gradient">Built to perform.</span></h1>
+  <p>AI agents, cloud migration, and IT modernization that transform how businesses operate — from call centers to infrastructure.</p>
+  <div class="hero-buttons">
+    <a href="https://connect.arxyn.com" class="btn-primary"><i data-lucide="arrow-right"></i> Talk to Us</a>
+    <a href="#services" class="btn-secondary"><i data-lucide="layers"></i> Explore Services</a>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">&lt;1s</div>
+    <div class="stat-label">Response</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">99.9%</div>
+    <div class="stat-label">Uptime</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">Always On</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">45%</div>
+    <div class="stat-label">Cost Savings</div>
+  </div>
+</div>
+
+<section class="section-full" id="services">
+  <div class="section-label">Services</div>
+  <h2>End-to-end<br>transformation.</h2>
+  <p class="subtitle">From AI-powered automation to infrastructure modernization — measurable outcomes across every layer of your business.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="mic"></i></div>
+      <h3>AI Voice Agents</h3>
+      <p>Intelligent agents that handle calls, qualify leads, book appointments — 24/7 with sub-second response. STIR/SHAKEN certified.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="bot"></i></div>
+      <h3>AI Workforce Platform</h3>
+      <p>AI tools that execute real business actions — CRM updates, scheduling, communications — integrated with 20+ enterprise tools.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="sparkles"></i></div>
+      <h3>Generative AI</h3>
+      <p>Custom GenAI solutions in weeks. Intelligent chatbots, document processing, knowledge platforms, and AI-powered workflows.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="brain"></i></div>
+      <h3>Machine Learning</h3>
+      <p>Automated ML that improves over time — customer insights, churn prediction, operations optimization, intelligent decisioning.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="cloud-upload"></i></div>
+      <h3>Cloud Migration</h3>
+      <p>Zero-disruption migration to AWS and Azure. 100% of on-prem workloads moved with cost savings and modern operations.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="refresh-cw"></i></div>
+      <h3>Application Modernization</h3>
+      <p>Containers, serverless, microservices. Modernize legacy apps to unlock cloud potential with measurable ROI.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="code-2"></i></div>
+      <h3>Application Development</h3>
+      <p>Design, develop, deploy. Reliable, scalable applications on AWS — full-stack from architecture through production.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="database"></i></div>
+      <h3>Database Services</h3>
+      <p>Legacy database modernization for unlimited scale and HA at lower cost. RDS, Aurora, DynamoDB expertise.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="bar-chart-3"></i></div>
+      <h3>Data &amp; Analytics</h3>
+      <p>Scalable data lakes, pipelines, and real-time analytics. Redshift, S3, Glue, and streaming architectures.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="git-branch"></i></div>
+      <h3>DevOps</h3>
+      <p>CI/CD, infrastructure as code, GitOps. Accelerate delivery, increase reliability, improve agility.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="phone-call"></i></div>
+      <h3>Call Center Solutions</h3>
+      <p>AI-powered contact centers with intelligent routing, real-time analytics, and seamless human handoff.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="monitor"></i></div>
+      <h3>Microsoft Modernization</h3>
+      <p>Migrate Windows Server, SQL Server, .NET to cloud-native architectures. Eliminate legacy constraints.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="server"></i></div>
+      <h3>VMware Migration</h3>
+      <p>VMware to cloud-native. Prescriptive programs, proven tooling. Eliminate licensing costs.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="headphones"></i></div>
+      <h3>Managed Services</h3>
+      <p>24/7 cloud support, monitoring, managed DevOps. Always-on expert oversight at reduced cost.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="shield-check"></i></div>
+      <h3>Security &amp; Compliance</h3>
+      <p>SOC2, HITRUST, PCI DSS, NIST. Automated compliance, security hardening, audit acceleration.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i data-lucide="wifi"></i></div>
+      <h3>IoT Solutions</h3>
+      <p>Connected device management at scale. Data ingestion, real-time analytics, edge computing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="platform-section" id="platform">
+  <div class="section-full" style="padding-bottom:0">
+    <div class="section-label">Platform</div>
+    <h2>Arxyn Connect</h2>
+    <p class="subtitle">Our AI workforce platform — purpose-built for intelligent agents working alongside your teams.</p>
+  </div>
+  <div class="platform-grid" style="margin:0">
+    <div style="padding:0 48px 80px">
+      <div class="platform-features">
+        <div class="pf">
+          <div class="pf-icon"><i data-lucide="activity"></i></div>
+          <div>
+            <h4>Real-Time Voice AI</h4>
+            <p>Sub-100ms WebSocket connections. Natural conversations with enterprise telephony (FreeSWITCH + SIP).</p>
+          </div>
+        </div>
+        <div class="pf">
+          <div class="pf-icon"><i data-lucide="plug"></i></div>
+          <div>
+            <h4>Native Integrations</h4>
+            <p>AI agents that execute real actions — CRMs, email, calendars, workflows — via MCP (Model Context Protocol).</p>
+          </div>
+        </div>
+        <div class="pf">
+          <div class="pf-icon"><i data-lucide="lock"></i></div>
+          <div>
+            <h4>Enterprise Security</h4>
+            <p>JWT tenant isolation, SSRF protection, SSO/RBAC. Compliance-ready controls built in.</p>
+          </div>
+        </div>
+        <div class="pf">
+          <div class="pf-icon"><i data-lucide="eye"></i></div>
+          <div>
+            <h4>Full Observability</h4>
+            <p>Metrics, logs, traces across every interaction. Prometheus, Grafana, custom dashboards.</p>
+          </div>
+        </div>
+        <div class="pf">
+          <div class="pf-icon"><i data-lucide="boxes"></i></div>
+          <div>
+            <h4>Multi-Tenant Architecture</h4>
+            <p>Isolated environments per customer on shared Kubernetes infrastructure. Built to scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-visual">
+      <div class="pv-icon"><i data-lucide="radio-tower"></i></div>
+      <h3>ARXYN CONNECT</h3>
+      <p>Built for scale. Enterprise telephony.<br>Always on.</p>
+      <div class="pv-stats">
+        <div class="pv-stat">
+          <div class="pv-stat-num">10K+</div>
+          <div class="pv-stat-label">Connections</div>
+        </div>
+        <div class="pv-stat">
+          <div class="pv-stat-num">&lt;100ms</div>
+          <div class="pv-stat-label">Latency</div>
+        </div>
+        <div class="pv-stat">
+          <div class="pv-stat-num">99.9%</div>
+          <div class="pv-stat-label">Uptime</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-full" id="why">
+  <div class="section-label">Why Arxyn</div>
+  <h2>Built different.</h2>
+  <p class="subtitle">We're not just consultants. We build, operate, and stand behind every solution we deliver.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <h3>Builder-Led</h3>
+      <p>Our team has led cloud engineering at scale — migrating datacenters, building real-time platforms, operating production infra. We don't advise. We build.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <h3>Outcomes, Not Hours</h3>
+      <p>We measure success in cost savings, uptime improvements, and automation rates. Clear, measurable outcomes from day one.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <h3>Full Stack</h3>
+      <p>AI voice agents to Kubernetes clusters to compliance automation — one team, one relationship. No gaps between strategy and execution.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to<br>transform?</h2>
+  <p>Tell us what you're working on.<br>We'll show you what's possible.</p>
+  <a href="https://connect.arxyn.com" class="btn-primary"><i data-lucide="arrow-right"></i> Get Started</a>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="arxyn-logo.png" alt="Arxyn">
+      <p class="footer-mission">Transforming how businesses operate with AI agents, cloud migration, and intelligent automation. We build, operate, and stand behind every solution we deliver.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/arxyn" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a href="mailto:info@arxyn.com" aria-label="Email"><i data-lucide="mail"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">AI Voice Agents</a>
+      <a href="#services">Cloud Migration</a>
+      <a href="#services">App Modernization</a>
+      <a href="#services">Generative AI</a>
+      <a href="#services">DevOps</a>
+      <a href="#services">Managed Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="https://connect.arxyn.com">Arxyn Connect</a>
+      <a href="#platform">Voice AI</a>
+      <a href="#platform">Integrations</a>
+      <a href="#platform">Security</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="https://www.linkedin.com/company/arxyn">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://support.arxyn.com">Support</a>
+      <a href="https://support.arxyn.com/support/solutions/articles/174000257025-privacy-policy">Privacy Policy</a>
+      <a href="https://support.arxyn.com/support/solutions/articles/174000257026-terms-of-service">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Arxyn Inc. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="https://support.arxyn.com/support/solutions/articles/174000257025-privacy-policy">Privacy</a>
+      <a href="https://support.arxyn.com/support/solutions/articles/174000257026-terms-of-service">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+lucide.createIcons();
+
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Stagger children if it's a grid
+      const children = entry.target.querySelectorAll('.service-card, .why-card, .stat, .pf');
+      children.forEach((child, i) => {
+        child.style.transitionDelay = `${i * 60}ms`;
+        child.classList.add('visible');
+      });
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.hero-badge, .hero h1, .hero p, .hero-buttons, .stats-bar, .section-label, .section-full h2, .section-full .subtitle, .services-grid, .platform-grid, .platform-features, .platform-visual, .why-grid, .cta-section h2, .cta-section p, .cta-section .btn-primary, .footer-top, .pv-icon, .pv-stats, .stat, .service-card, .why-card, .pf').forEach(el => {
+  el.classList.add('animate');
+  observer.observe(el);
+});
+
+// Hero elements animate immediately with stagger
+document.querySelectorAll('.hero .animate').forEach((el, i) => {
+  setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+});
+</script>
+</body>
+</html>
