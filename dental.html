@@ -1,569 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Voice Agents for Dental Practices — Arxyn</title>
-    <meta name="description" content="Never miss a patient call again. Arxyn's AI voice agent answers every call, schedules appointments, and handles patient questions — 24/7. Built for dental practices.">
-    <meta property="og:title" content="AI Receptionist for Dental Practices — Arxyn">
-    <meta property="og:description" content="Stop losing patients to voicemail. AI-powered phone agent that books appointments 24/7 for under $500/month.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.arxyn.com/dental">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --accent: #7c3aed;
-            --bg: #0a0a0f;
-            --bg-card: #111118;
-            --bg-card-hover: #16161f;
-            --text: #f1f1f4;
-            --text-muted: #9ca3af;
-            --border: #1e1e2a;
-            --gradient: linear-gradient(135deg, #2563eb, #7c3aed);
-            --success: #22c55e;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Voice Agents for Dental Practices — Never Miss a Patient Call | Arxyn</title>
+<meta name="description" content="Stop losing patients to voicemail. Arxyn's AI voice agent answers every call, schedules appointments, and handles patient questions — 24/7. Built for dental practices. $299/mo.">
+<meta name="keywords" content="dental AI receptionist, AI voice agent dental, dental appointment scheduling AI, dental practice phone answering, AI receptionist for dentist">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.arxyn.com/dental">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta property="og:title" content="AI Receptionist for Dental Practices — Arxyn">
+<meta property="og:description" content="Stop losing patients to voicemail. AI voice agent that books appointments 24/7 for under $500/month.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.arxyn.com/dental">
+<meta property="og:image" content="https://www.arxyn.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050508;--surface:#0a0a0f;--surface-2:#0f0f16;
+  --text:#f5f5f7;--text-mid:rgba(255,255,255,.7);--text-dim:rgba(255,255,255,.45);
+  --blue:#3b82f6;--purple:#7c3aed;--pink:#ec4899;--cyan:#06b6d4;--red:#ef4444;--green:#22c55e;
+  --gradient:linear-gradient(135deg,#3b82f6,#7c3aed,#ec4899);
+  --glow-blue:rgba(59,130,246,.12);--glow-purple:rgba(124,58,237,.1);
+  --border:rgba(255,255,255,.06);--border-hover:rgba(255,255,255,.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--blue);text-decoration:none}
+i[data-lucide]{display:inline-block;vertical-align:middle}
 
-        /* NAV */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 100;
-            background: rgba(10,10,15,0.9); backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .nav-logo { font-size: 1.5rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--text); }
-        .btn-primary { background: var(--gradient); color: white; padding: 0.6rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: opacity 0.2s; display: inline-block; }
-        .btn-primary:hover { opacity: 0.9; }
-        .btn-outline { border: 1px solid var(--border); color: var(--text); padding: 0.6rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.2s; display: inline-block; }
-        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(5,5,8,.7);backdrop-filter:blur(30px);border-bottom:1px solid var(--border)}
+.nav-inner{padding:0 48px;height:80px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{height:36px;opacity:.95;transition:opacity .2s}
+.nav-logo:hover{opacity:1}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{color:var(--text-mid);font-size:16px;font-weight:600;letter-spacing:.3px;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:rgba(59,130,246,.15)!important;color:var(--blue)!important;padding:12px 32px;border-radius:10px;border:1px solid rgba(59,130,246,.3);font-weight:700;transition:all .2s;font-size:15px}
+.nav-cta:hover{background:var(--blue)!important;color:#fff!important}
 
-        /* HERO */
-        .hero {
-            padding: 10rem 2rem 6rem;
-            max-width: 1100px; margin: 0 auto;
-            text-align: center;
-            position: relative;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(37,99,235,0.1);
-            border: 1px solid rgba(37,99,235,0.3);
-            color: #60a5fa;
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-        .hero h1 .highlight {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 2.5rem;
-        }
-        .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .hero-stats {
-            display: flex; justify-content: center; gap: 3rem; margin-top: 4rem;
-            flex-wrap: wrap;
-        }
-        .stat { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:140%;height:80%;background:radial-gradient(ellipse at center,var(--glow-blue) 0%,var(--glow-purple) 30%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gradient);opacity:.3}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;opacity:0;mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%);animation:gridPulseIn 2.5s ease forwards}
+@keyframes gridPulseIn{0%{opacity:0;background-size:120px 120px}60%{opacity:.4}100%{opacity:.25;background-size:80px 80px}}
+.hero-grid::after{content:'';position:absolute;inset:0;background:radial-gradient(circle 400px at var(--grid-x,50%) var(--grid-y,50%),rgba(59,130,246,.06),transparent);pointer-events:none}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:0;animation:orbFloat 20s ease-in-out infinite,orbFadeIn 2s ease forwards}
+.hero-orb--blue{width:500px;height:500px;background:rgba(59,130,246,.12);top:-10%;left:-5%;animation-delay:0s,.1s}
+.hero-orb--purple{width:400px;height:400px;background:rgba(124,58,237,.1);top:20%;right:-8%;animation-delay:-7s,.3s}
+.hero-orb--cyan{width:350px;height:350px;background:rgba(6,182,212,.08);bottom:-5%;left:30%;animation-delay:-13s,.5s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(40px,-30px) scale(1.05)}50%{transform:translate(-20px,40px) scale(.95)}75%{transform:translate(-40px,-20px) scale(1.03)}}
+@keyframes orbFadeIn{from{opacity:0}to{opacity:1}}
 
-        /* PROBLEM SECTION */
-        .problem {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, transparent, rgba(220,38,38,0.03), transparent);
-        }
-        .problem-inner {
-            max-width: 900px; margin: 0 auto; text-align: center;
-        }
-        .problem h2 {
-            font-size: 2rem; font-weight: 700; margin-bottom: 1rem;
-        }
-        .problem h2 .red { color: #ef4444; }
-        .problem > .problem-inner > p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 3rem; }
-        .pain-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem; text-align: left;
-        }
-        .pain-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-        .pain-card .pain-stat { font-size: 2rem; font-weight: 800; color: #ef4444; margin-bottom: 0.5rem; }
-        .pain-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .pain-card p { font-size: 0.9rem; color: var(--text-muted); }
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:10px 24px;border-radius:100px;font-size:13px;font-weight:600;color:var(--text-mid);margin-bottom:48px;position:relative;z-index:1;opacity:0;transform:translateY(20px);animation:heroReveal .8s cubic-bezier(.16,1,.3,1) .4s forwards}
+.hero-badge span{color:var(--blue)}
+.hero h1{font-size:clamp(48px,8vw,110px);font-weight:900;line-height:.95;letter-spacing:-4px;margin-bottom:36px;position:relative;z-index:1}
+.hero h1 .line{display:block;opacity:0;transform:translateY(40px);animation:heroReveal .9s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .line:nth-child(1){animation-delay:.6s}
+.hero h1 .line:nth-child(2){animation-delay:.75s}
+.hero h1 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% 200%;animation:gradientShimmer 4s ease infinite 1.2s}
+@keyframes gradientShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes heroReveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero p{font-size:22px;color:var(--text-dim);max-width:650px;margin:0 auto 56px;line-height:1.7;font-weight:400;position:relative;z-index:1;opacity:0;transform:translateY(25px);animation:heroReveal .8s cubic-bezier(.16,1,.3,1) 1.15s forwards}
+.hero-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;opacity:0;transform:translateY(25px);animation:heroReveal .8s cubic-bezier(.16,1,.3,1) 1.35s forwards}
+.btn-primary{background:#fff;color:#000;padding:18px 44px;border-radius:12px;font-weight:800;font-size:16px;transition:all .25s;display:inline-flex;align-items:center;gap:12px;border:none;cursor:pointer;letter-spacing:-.3px}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 60px rgba(255,255,255,.15);color:#000}
+.btn-secondary{background:transparent;color:#fff;padding:18px 44px;border-radius:12px;font-weight:700;font-size:16px;border:1px solid var(--border-hover);transition:all .25s;display:inline-flex;align-items:center;gap:12px}
+.btn-secondary:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04);transform:translateY(-2px);color:#fff}
 
-        /* SOLUTION */
-        .solution {
-            padding: 6rem 2rem;
-            max-width: 1100px; margin: 0 auto;
-        }
-        .solution-header { text-align: center; margin-bottom: 4rem; }
-        .solution-header h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
-        .solution-header p { color: var(--text-muted); font-size: 1.1rem; }
-        .features {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .feature {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: border-color 0.3s;
-        }
-        .feature:hover { border-color: var(--primary); }
-        .feature-icon {
-            width: 48px; height: 48px;
-            background: rgba(37,99,235,0.1);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        .feature h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .feature p { font-size: 0.9rem; color: var(--text-muted); }
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{text-align:center;padding:56px 24px;border-right:1px solid var(--border);transition:background .3s}
+.stat:last-child{border-right:none}
+.stat:hover{background:rgba(255,255,255,.02)}
+.stat-num{font-size:52px;font-weight:900;letter-spacing:-3px;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:13px;color:var(--text-dim);margin-top:8px;font-weight:500;text-transform:uppercase;letter-spacing:2px}
+.stat-red .stat-num{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
-        /* HOW IT WORKS */
-        .how {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, transparent, rgba(37,99,235,0.03), transparent);
-        }
-        .how-inner { max-width: 800px; margin: 0 auto; text-align: center; }
-        .how h2 { font-size: 2rem; font-weight: 700; margin-bottom: 3rem; }
-        .steps { display: flex; flex-direction: column; gap: 2rem; text-align: left; }
-        .step {
-            display: flex; gap: 1.5rem; align-items: flex-start;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-        .step-num {
-            min-width: 48px; height: 48px;
-            background: var(--gradient);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 1.2rem;
-        }
-        .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
-        .step p { font-size: 0.9rem; color: var(--text-muted); }
+/* SECTIONS */
+.section-full{padding:140px 48px}
+.section-label{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:4px;margin-bottom:20px}
+.section-full h2{font-size:clamp(40px,6vw,72px);font-weight:900;letter-spacing:-3px;margin-bottom:20px;line-height:1.05}
+.section-full .subtitle{font-size:20px;color:var(--text-dim);max-width:650px;margin-bottom:72px;line-height:1.7}
 
-        /* COMPARISON */
-        .comparison {
-            padding: 6rem 2rem;
-            max-width: 900px; margin: 0 auto;
-        }
-        .comparison h2 { text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 3rem; }
-        .compare-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .compare-table th, .compare-table td {
-            padding: 1rem 1.5rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .compare-table th {
-            background: rgba(37,99,235,0.05);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-        }
-        .compare-table td { font-size: 0.95rem; }
-        .compare-table tr:last-child td { border-bottom: none; }
-        .compare-table .arxyn-row { background: rgba(37,99,235,0.05); }
-        .compare-table .arxyn-row td { font-weight: 600; }
-        .check { color: var(--success); }
-        .cross { color: #ef4444; }
+/* PAIN SECTION */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.pain-card{background:var(--surface);padding:48px 36px;transition:all .4s;position:relative;overflow:hidden}
+.pain-card:hover{background:var(--surface-2)}
+.pain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ef4444,#f97316);opacity:0;transition:opacity .3s}
+.pain-card:hover::before{opacity:1}
+.pain-icon{width:52px;height:52px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--red)}
+.pain-icon i{width:24px;height:24px;stroke-width:1.8}
+.pain-stat{font-size:48px;font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.pain-card h3{font-size:18px;font-weight:800;margin-bottom:10px;letter-spacing:-.3px}
+.pain-card p{font-size:14px;color:var(--text-dim);line-height:1.7}
 
-        /* PRICING */
-        .pricing {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, transparent, rgba(124,58,237,0.03), transparent);
-        }
-        .pricing-inner { max-width: 500px; margin: 0 auto; text-align: center; }
-        .pricing h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
-        .pricing > .pricing-inner > p { color: var(--text-muted); margin-bottom: 3rem; }
-        .price-card {
-            background: var(--bg-card);
-            border: 2px solid var(--primary);
-            border-radius: 16px;
-            padding: 3rem 2rem;
-            position: relative;
-        }
-        .price-badge {
-            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--gradient);
-            color: white;
-            padding: 0.3rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        .price-amount {
-            font-size: 4rem; font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .price-period { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; }
-        .price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
-        .price-features li {
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.95rem;
-            display: flex; align-items: center; gap: 0.75rem;
-        }
-        .price-features li:last-child { border-bottom: none; }
-        .price-features .check-icon { color: var(--success); font-weight: bold; }
-        .price-card .btn-primary { width: 100%; text-align: center; padding: 1rem; font-size: 1.1rem; border: none; cursor: pointer; }
+/* FEATURES GRID */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.feature-card{background:var(--surface);padding:48px 36px;transition:all .4s;position:relative;overflow:hidden}
+.feature-card:hover{background:var(--surface-2)}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient);opacity:0;transition:opacity .3s}
+.feature-card:hover::before{opacity:1}
+.feature-icon{width:52px;height:52px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--blue)}
+.feature-icon i{width:24px;height:24px;stroke-width:1.8}
+.feature-card h3{font-size:18px;font-weight:800;margin-bottom:10px;letter-spacing:-.3px}
+.feature-card p{font-size:14px;color:var(--text-dim);line-height:1.7}
 
-        /* TESTIMONIAL PLACEHOLDER */
-        .social-proof {
-            padding: 4rem 2rem;
-            max-width: 800px; margin: 0 auto;
-            text-align: center;
-        }
-        .proof-quote {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-        .proof-author { font-weight: 600; }
-        .proof-title { font-size: 0.85rem; color: var(--text-muted); }
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.step-card{background:var(--surface);padding:56px 40px;transition:all .3s;position:relative}
+.step-card:hover{background:var(--surface-2)}
+.step-num{font-size:72px;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:.15;margin-bottom:16px;line-height:1}
+.step-card h3{font-size:24px;font-weight:900;margin-bottom:12px;letter-spacing:-.5px}
+.step-card p{font-size:15px;color:var(--text-dim);line-height:1.7}
 
-        /* CTA */
-        .final-cta {
-            padding: 6rem 2rem;
-            text-align: center;
-            background: linear-gradient(180deg, transparent, rgba(37,99,235,0.05));
-        }
-        .final-cta h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
-        .final-cta p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .final-cta .btn-primary { padding: 1rem 2.5rem; font-size: 1.1rem; }
+/* COMPARISON TABLE */
+.compare-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.compare-table{width:100%;border-collapse:collapse}
+.compare-table th,.compare-table td{padding:20px 32px;text-align:left;border-bottom:1px solid var(--border);font-size:15px}
+.compare-table th{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text-dim);background:var(--surface-2)}
+.compare-table td:first-child{font-weight:700;color:var(--text-mid)}
+.compare-table .arxyn-col{background:rgba(59,130,246,.04)}
+.compare-table th.arxyn-col{color:var(--blue);background:rgba(59,130,246,.08)}
+.check{color:var(--green);font-weight:700}
+.cross{color:var(--red);font-weight:700}
 
-        /* FOOTER */
-        footer {
-            padding: 3rem 2rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        footer a { color: var(--text-muted); text-decoration: none; }
-        footer a:hover { color: var(--text); }
+/* LIVE DEMO VISUAL */
+.demo-section{position:relative;overflow:hidden}
+.demo-visual{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:600px}
+.demo-left{padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.demo-right{border-left:1px solid var(--border);background:var(--surface-2);display:flex;align-items:center;justify-content:center;padding:64px;position:relative;overflow:hidden}
+.demo-right::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;background:radial-gradient(circle,var(--glow-blue) 0%,transparent 65%);pointer-events:none}
+.demo-phone{background:var(--bg);border:1px solid var(--border);border-radius:20px;width:300px;padding:24px;position:relative;z-index:1}
+.demo-phone-header{text-align:center;margin-bottom:24px}
+.demo-phone-header .caller{font-size:18px;font-weight:800;margin-bottom:4px}
+.demo-phone-header .status{font-size:13px;color:var(--green);font-weight:600}
+.demo-transcript{display:flex;flex-direction:column;gap:12px}
+.msg{padding:12px 16px;border-radius:12px;font-size:13px;line-height:1.6;max-width:85%}
+.msg-ai{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.15);color:var(--text);align-self:flex-start}
+.msg-patient{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text-mid);align-self:flex-end}
+.msg-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.msg-label.ai{color:var(--blue)}
+.msg-label.patient{color:var(--text-dim)}
+.demo-result{margin-top:20px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px}
+.demo-result i{color:var(--green);width:20px;height:20px;flex-shrink:0}
+.demo-result span{font-size:13px;font-weight:600;color:var(--green)}
 
-        /* MOBILE */
-        @media (max-width: 768px) {
-            nav { padding: 1rem; }
-            .nav-links { display: none; }
-            .hero { padding: 7rem 1.5rem 4rem; }
-            .hero-stats { gap: 2rem; }
-            .pain-grid { grid-template-columns: 1fr; }
-            .features { grid-template-columns: 1fr; }
-            .compare-table { font-size: 0.85rem; }
-            .compare-table th, .compare-table td { padding: 0.75rem; }
-        }
+/* PRICING */
+.pricing-section{position:relative;overflow:hidden}
+.pricing-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,var(--glow-purple) 0%,transparent 60%);pointer-events:none}
+.price-card{background:var(--surface);border:2px solid var(--blue);border-radius:20px;padding:64px 48px;max-width:520px;margin:0 auto;position:relative;z-index:1;text-align:center}
+.price-badge{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--gradient);color:#fff;padding:8px 28px;border-radius:100px;font-size:13px;font-weight:700;white-space:nowrap;letter-spacing:.3px}
+.price-amount{font-size:clamp(64px,10vw,96px);font-weight:900;letter-spacing:-4px;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.price-period{font-size:18px;color:var(--text-dim);margin-bottom:40px;font-weight:500}
+.price-features{list-style:none;text-align:left;margin-bottom:40px}
+.price-features li{padding:14px 0;border-bottom:1px solid var(--border);font-size:16px;font-weight:500;display:flex;align-items:center;gap:14px;color:var(--text-mid)}
+.price-features li:last-child{border-bottom:none}
+.price-features li i{color:var(--green);width:20px;height:20px;flex-shrink:0}
+.price-note{font-size:13px;color:var(--text-dim);margin-top:16px}
 
-        /* ANIMATIONS */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero h1, .hero p, .hero-ctas, .hero-stats { animation: fadeUp 0.6s ease-out both; }
-        .hero p { animation-delay: 0.1s; }
-        .hero-ctas { animation-delay: 0.2s; }
-        .hero-stats { animation-delay: 0.3s; }
-    </style>
+/* CTA */
+.cta-section{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px;position:relative;overflow:hidden;border-top:1px solid var(--border)}
+.cta-section::before{content:'';position:absolute;bottom:-20%;left:50%;transform:translateX(-50%);width:120%;height:80%;background:radial-gradient(ellipse at center,var(--glow-blue) 0%,var(--glow-purple) 30%,transparent 60%);pointer-events:none}
+.cta-section h2{font-size:clamp(44px,7vw,80px);font-weight:900;letter-spacing:-3px;margin-bottom:24px;line-height:1;position:relative;z-index:1}
+.cta-section p{color:var(--text-dim);font-size:20px;max-width:500px;margin:0 auto 56px;position:relative;z-index:1;line-height:1.7}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:48px;background:var(--surface);text-align:center}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-links{display:flex;gap:24px}
+.footer-links a,.footer-copy{color:var(--text-dim);font-size:14px;font-weight:500}
+.footer-links a:hover{color:#fff}
+
+/* ANIMATIONS */
+.animate{opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.animate.visible{opacity:1;transform:translateY(0)}
+.pain-card.animate,.feature-card.animate,.step-card.animate,.stat.animate{transform:translateY(30px)}
+.pain-card.animate.visible,.feature-card.animate.visible,.step-card.animate.visible,.stat.animate.visible{opacity:1;transform:translateY(0)}
+.stats-bar .stat{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.stats-bar.visible .stat{opacity:1;transform:translateY(0)}
+.stats-bar.visible .stat:nth-child(1){transition-delay:0ms}
+.stats-bar.visible .stat:nth-child(2){transition-delay:100ms}
+.stats-bar.visible .stat:nth-child(3){transition-delay:200ms}
+.stats-bar.visible .stat:nth-child(4){transition-delay:300ms}
+
+/* MOBILE */
+@media(max-width:1024px){
+  .pain-grid,.features-grid,.steps-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-inner,.section-full{padding-left:24px;padding-right:24px}
+}
+@media(max-width:768px){
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding:100px 24px 60px;min-height:90vh}
+  .hero h1{letter-spacing:-3px}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:36px 16px}
+  .pain-grid,.features-grid,.steps-grid{grid-template-columns:1fr}
+  .demo-visual{grid-template-columns:1fr}
+  .demo-right{border-left:none;border-top:1px solid var(--border)}
+  .demo-left{padding:60px 24px}
+  .demo-right{padding:40px 24px}
+  .section-full{padding:80px 24px}
+  .price-card{padding:48px 24px}
+  .cta-section{padding:80px 24px}
+  footer{padding:32px 24px}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-    <a href="https://www.arxyn.com" class="nav-logo">Arxyn</a>
+  <div class="nav-inner">
+    <a href="index.html"><img src="arxyn-logo.png" alt="Arxyn" class="nav-logo" style="filter:invert(1) brightness(2)"></a>
     <div class="nav-links">
-        <a href="#problem">The Problem</a>
-        <a href="#solution">Solution</a>
-        <a href="#how">How It Works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#cta" class="btn-primary">Get a Demo</a>
+      <a href="index.html#services">Services</a>
+      <a href="dental.html" style="color:#fff">Dental AI</a>
+      <a href="index.html#platform">Platform</a>
+      <a href="index.html#products">Products</a>
+      <a href="contact.html">Contact</a>
+      <a href="#cta" class="nav-cta">Get a Demo</a>
     </div>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-badge">Built for Dental Practices</div>
-    <h1>Stop Losing Patients to <span class="highlight">Voicemail</span></h1>
-    <p>Arxyn's AI voice agent answers every patient call, schedules appointments, and handles questions — 24/7/365. Sounds human. Costs less than one receptionist.</p>
-    <div class="hero-ctas">
-        <a href="#cta" class="btn-primary">Book a 15-Min Demo</a>
-        <a href="#how" class="btn-outline">See How It Works</a>
-    </div>
-    <div class="hero-stats">
-        <div class="stat">
-            <div class="stat-number">40%</div>
-            <div class="stat-label">of dental calls go unanswered</div>
-        </div>
-        <div class="stat">
-            <div class="stat-number">$1,200</div>
-            <div class="stat-label">avg. lifetime value per patient</div>
-        </div>
-        <div class="stat">
-            <div class="stat-number">85%</div>
-            <div class="stat-label">of callers won't leave a voicemail</div>
-        </div>
-    </div>
+  <div class="hero-orb hero-orb--blue"></div>
+  <div class="hero-orb hero-orb--purple"></div>
+  <div class="hero-orb hero-orb--cyan"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-badge">
+    <span>Built for Dental</span> — AI Voice Agents with sub-second response
+  </div>
+  <h1>
+    <span class="line">Stop losing</span>
+    <span class="line"><span class="gradient">patients</span> to</span>
+    <span class="line">voicemail.</span>
+  </h1>
+  <p>Your AI receptionist answers every patient call, schedules appointments, handles questions, and reduces no-shows — 24/7/365. Sounds human. Costs less than one hire.</p>
+  <div class="hero-buttons">
+    <a href="#cta" class="btn-primary"><i data-lucide="calendar"></i> Book a 15-Min Demo</a>
+    <a href="#how" class="btn-secondary"><i data-lucide="play"></i> See How It Works</a>
+  </div>
 </section>
 
-<!-- PROBLEM -->
-<section class="problem" id="problem">
-    <div class="problem-inner">
-        <h2>Your Front Desk Is <span class="red">Losing You Patients</span></h2>
-        <p>Every unanswered call is a patient who books with the practice down the street.</p>
-        <div class="pain-grid">
-            <div class="pain-card">
-                <div class="pain-stat">40%</div>
-                <h3>Calls Go to Voicemail</h3>
-                <p>During peak hours, hold times drive patients away. After hours? Straight to voicemail — and they never call back.</p>
-            </div>
-            <div class="pain-card">
-                <div class="pain-stat">23-33%</div>
-                <h3>No-Show Rate</h3>
-                <p>Without automated confirmations and reminders, no-shows cost the average practice $150K+ per year in lost revenue.</p>
-            </div>
-            <div class="pain-card">
-                <div class="pain-stat">$45K+</div>
-                <h3>Per Receptionist</h3>
-                <p>Fully loaded cost per front desk hire — salary, benefits, training, turnover. And they only work 40 hours a week.</p>
-            </div>
-            <div class="pain-card">
-                <div class="pain-stat">62%</div>
-                <h3>Won't Leave a Voicemail</h3>
-                <p>Most patients hang up and call the next practice. You never even know you lost them.</p>
-            </div>
-        </div>
+<!-- STATS -->
+<section class="stats-bar animate">
+  <div class="stat stat-red">
+    <div class="stat-num">40%</div>
+    <div class="stat-label">Calls Go Unanswered</div>
+  </div>
+  <div class="stat stat-red">
+    <div class="stat-num">85%</div>
+    <div class="stat-label">Won't Leave a Voicemail</div>
+  </div>
+  <div class="stat stat-red">
+    <div class="stat-num">$1,200</div>
+    <div class="stat-label">Avg Patient Lifetime Value</div>
+  </div>
+  <div class="stat stat-red">
+    <div class="stat-num">23-33%</div>
+    <div class="stat-label">No-Show Rate</div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="section-full" id="problem">
+  <div class="section-label">The Problem</div>
+  <h2>Your front desk is<br>losing you patients.</h2>
+  <p class="subtitle">Every unanswered call is a patient who books with the practice down the street. And they're not calling back.</p>
+
+  <div class="pain-grid">
+    <div class="pain-card animate">
+      <div class="pain-icon"><i data-lucide="phone-missed"></i></div>
+      <div class="pain-stat">40%</div>
+      <h3>Calls Missed During Peak</h3>
+      <p>When all lines are busy, patients get voicemail. 85% hang up and call the next practice. You never know you lost them.</p>
     </div>
+    <div class="pain-card animate">
+      <div class="pain-icon"><i data-lucide="calendar-x"></i></div>
+      <div class="pain-stat">$150K+</div>
+      <h3>Lost to No-Shows Annually</h3>
+      <p>Without automated reminders and confirmations, no-shows cost the average multi-provider practice over $150,000 per year.</p>
+    </div>
+    <div class="pain-card animate">
+      <div class="pain-icon"><i data-lucide="user-x"></i></div>
+      <div class="pain-stat">$45K+</div>
+      <h3>Per Receptionist Per Year</h3>
+      <p>Salary, benefits, training, turnover. And they work 40 hours a week — not the 168 hours your phone rings.</p>
+    </div>
+    <div class="pain-card animate">
+      <div class="pain-icon"><i data-lucide="moon"></i></div>
+      <div class="pain-stat">34%</div>
+      <h3>Calls Come After Hours</h3>
+      <p>A third of patient calls come outside business hours. Evenings, weekends, holidays. Every one is lost revenue.</p>
+    </div>
+    <div class="pain-card animate">
+      <div class="pain-icon"><i data-lucide="clock"></i></div>
+      <div class="pain-stat">45 sec</div>
+      <h3>Average Hold Time</h3>
+      <p>Patients expect instant answers. After 30 seconds on hold, abandonment rates spike. After 60 seconds, they're gone.</p>
+    </div>
+    <div class="pain-card animate">
+      <div class="pain-icon"><i data-lucide="repeat"></i></div>
+      <div class="pain-stat">38%</div>
+      <h3>Front Desk Turnover</h3>
+      <p>Constant hiring and training cycles. Every new receptionist takes weeks to learn your systems, providers, and protocols.</p>
+    </div>
+  </div>
 </section>
 
 <!-- SOLUTION -->
-<section class="solution" id="solution">
-    <div class="solution-header">
-        <h2>Meet Your AI Receptionist</h2>
-        <p>Everything your front desk does on the phone — but 24/7, instantly, and for a fraction of the cost.</p>
+<section class="section-full" id="solution" style="border-top:1px solid var(--border)">
+  <div class="section-label">The Solution</div>
+  <h2>Your AI receptionist.<br>Always on.</h2>
+  <p class="subtitle">Everything your best front desk person does on the phone — but 24/7, instantly, and for a fraction of the cost.</p>
+
+  <div class="features-grid">
+    <div class="feature-card animate">
+      <div class="feature-icon"><i data-lucide="phone-incoming"></i></div>
+      <h3>Answers in Under 2 Seconds</h3>
+      <p>No hold times. No voicemail. No missed patients. Every call answered instantly — days, nights, weekends, holidays.</p>
     </div>
-    <div class="features">
-        <div class="feature">
-            <div class="feature-icon">📞</div>
-            <h3>Answers Every Call Instantly</h3>
-            <p>No hold times, no voicemail, no missed patients. Picks up in under 2 seconds, every time — days, nights, weekends, holidays.</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">📅</div>
-            <h3>Schedules Appointments</h3>
-            <p>Books, reschedules, and cancels appointments in real-time. Checks provider availability and slots patients into your actual calendar.</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">🔄</div>
-            <h3>Reduces No-Shows</h3>
-            <p>Automated appointment confirmations and reminders via call or text. Fills cancellations from your waitlist automatically.</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">🏥</div>
-            <h3>Handles Patient Questions</h3>
-            <p>Answers FAQs about services, hours, insurance accepted, directions, and new patient procedures — just like your best receptionist would.</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">🔒</div>
-            <h3>HIPAA-Aware</h3>
-            <p>Designed with healthcare privacy in mind. No patient data stored on third-party servers. Secure call handling and encrypted connections.</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">🔗</div>
-            <h3>Integrates With Your Systems</h3>
-            <p>Works with Dentrix, Eaglesoft, Open Dental, Google Calendar, and more. Fits into your existing workflow — no rip-and-replace.</p>
-        </div>
+    <div class="feature-card animate">
+      <div class="feature-icon"><i data-lucide="calendar-check"></i></div>
+      <h3>Schedules Appointments</h3>
+      <p>Books, reschedules, and cancels in real-time. Checks provider availability. Slots patients into your actual calendar.</p>
     </div>
+    <div class="feature-card animate">
+      <div class="feature-icon"><i data-lucide="bell-ring"></i></div>
+      <h3>Reduces No-Shows</h3>
+      <p>Automated confirmations and reminders via call or text. Fills cancellations from your waitlist. Cuts no-shows by up to 50%.</p>
+    </div>
+    <div class="feature-card animate">
+      <div class="feature-icon"><i data-lucide="message-circle"></i></div>
+      <h3>Answers Patient Questions</h3>
+      <p>Services, hours, insurance accepted, directions, new patient info. Handles FAQs exactly like your best receptionist would.</p>
+    </div>
+    <div class="feature-card animate">
+      <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+      <h3>HIPAA-Aware</h3>
+      <p>Built with healthcare privacy in mind. Secure call handling, encrypted connections. No patient data stored on third-party servers.</p>
+    </div>
+    <div class="feature-card animate">
+      <div class="feature-icon"><i data-lucide="plug"></i></div>
+      <h3>Integrates With Your Stack</h3>
+      <p>Dentrix, Eaglesoft, Open Dental, Google Calendar, and more. Fits your existing workflow — no rip and replace required.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO VISUAL -->
+<section class="demo-section" id="demo" style="border-top:1px solid var(--border)">
+  <div class="demo-visual">
+    <div class="demo-left">
+      <div class="section-label">Live Example</div>
+      <h2 style="font-size:clamp(32px,4vw,48px);font-weight:900;letter-spacing:-2px;margin-bottom:16px;line-height:1.1">Hear how it<br>handles a real call.</h2>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.7;margin-bottom:32px">A patient calls to schedule a cleaning. The AI agent picks up instantly, checks availability, books the appointment, and confirms — all in under 60 seconds.</p>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0"><i data-lucide="zap" style="width:20px;height:20px"></i></div><span style="font-size:15px;color:var(--text-mid)"><strong>Instant pickup</strong> — no rings, no hold music</span></div>
+        <div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0"><i data-lucide="brain" style="width:20px;height:20px"></i></div><span style="font-size:15px;color:var(--text-mid)"><strong>Natural conversation</strong> — callers can't tell it's AI</span></div>
+        <div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0"><i data-lucide="calendar" style="width:20px;height:20px"></i></div><span style="font-size:15px;color:var(--text-mid)"><strong>Real-time booking</strong> — appears in your calendar instantly</span></div>
+      </div>
+    </div>
+    <div class="demo-right">
+      <div class="demo-phone">
+        <div class="demo-phone-header">
+          <div style="width:48px;height:48px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--blue)"><i data-lucide="phone" style="width:22px;height:22px"></i></div>
+          <div class="caller">Bright Smile Dental</div>
+          <div class="status">AI Agent Active</div>
+        </div>
+        <div class="demo-transcript">
+          <div class="msg msg-ai">
+            <div class="msg-label ai">AI Agent</div>
+            Thank you for calling Bright Smile Dental, this is Sarah. How can I help you today?
+          </div>
+          <div class="msg msg-patient">
+            <div class="msg-label patient">Patient</div>
+            Hi, I'd like to schedule a cleaning.
+          </div>
+          <div class="msg msg-ai">
+            <div class="msg-label ai">AI Agent</div>
+            I have openings Thursday at 10am or Friday at 2pm. Which works better?
+          </div>
+          <div class="msg msg-patient">
+            <div class="msg-label patient">Patient</div>
+            Thursday at 10 works.
+          </div>
+          <div class="msg msg-ai">
+            <div class="msg-label ai">AI Agent</div>
+            You're all set! Thursday at 10am, dental cleaning. We'll text you a confirmation.
+          </div>
+        </div>
+        <div class="demo-result">
+          <i data-lucide="check-circle"></i>
+          <span>Appointment booked — added to calendar</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how" id="how">
-    <div class="how-inner">
-        <h2>Live in 48 Hours. Not 48 Days.</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-num">1</div>
-                <div>
-                    <h3>15-Minute Setup Call</h3>
-                    <p>Tell us about your practice — providers, hours, services, insurance, and how you want calls handled. We build your custom AI agent live on the call.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <div>
-                    <h3>Test & Refine</h3>
-                    <p>Call your AI agent yourself. Test scheduling, rescheduling, FAQs, edge cases. We fine-tune until it handles calls exactly the way you want.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <div>
-                    <h3>Go Live</h3>
-                    <p>Forward your calls to the AI agent — all calls, overflow only, or after-hours only. You choose. Start capturing every patient call immediately.</p>
-                </div>
-            </div>
-        </div>
+<section class="section-full" id="how" style="border-top:1px solid var(--border)">
+  <div class="section-label">How It Works</div>
+  <h2>Live in 48 hours.<br>Not 48 days.</h2>
+  <p class="subtitle">From first call to live AI agent — faster than hiring a temp.</p>
+
+  <div class="steps-grid">
+    <div class="step-card animate">
+      <div class="step-num">01</div>
+      <h3>15-Minute Setup Call</h3>
+      <p>Tell us your practice details — providers, hours, services, insurance. We build your custom AI agent live on the call. You watch it happen.</p>
     </div>
+    <div class="step-card animate">
+      <div class="step-num">02</div>
+      <h3>Test & Refine</h3>
+      <p>Call your AI agent yourself. Test scheduling, rescheduling, FAQs, edge cases. We tune it until it handles calls exactly your way.</p>
+    </div>
+    <div class="step-card animate">
+      <div class="step-num">03</div>
+      <h3>Go Live</h3>
+      <p>Forward calls to the AI — all calls, overflow only, or after-hours only. You choose. Start capturing every patient immediately.</p>
+    </div>
+  </div>
 </section>
 
 <!-- COMPARISON -->
-<section class="comparison" id="compare">
-    <h2>How Arxyn Compares</h2>
-    <table class="compare-table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Receptionist</th>
-                <th>Answering Service</th>
-                <th>Arxyn AI</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Monthly Cost</td>
-                <td>$3,750+</td>
-                <td>$800-1,600</td>
-                <td class="check">$299*</td>
-            </tr>
-            <tr>
-                <td>Available 24/7</td>
-                <td class="cross">No</td>
-                <td class="check">Yes</td>
-                <td class="check">Yes</td>
-            </tr>
-            <tr>
-                <td>Books Into Your Calendar</td>
-                <td class="check">Yes</td>
-                <td class="cross">Messages only</td>
-                <td class="check">Yes</td>
-            </tr>
-            <tr>
-                <td>Answer Time</td>
-                <td>15-45 sec</td>
-                <td>30-90 sec</td>
-                <td class="check">&lt;2 sec</td>
-            </tr>
-            <tr>
-                <td>Handles Unlimited Calls</td>
-                <td class="cross">1 at a time</td>
-                <td>Queue system</td>
-                <td class="check">Simultaneous</td>
-            </tr>
-            <tr>
-                <td>Knows Your Practice</td>
-                <td class="check">Yes</td>
-                <td class="cross">Generic scripts</td>
-                <td class="check">Fully customized</td>
-            </tr>
-            <tr>
-                <td>Sick Days / Turnover</td>
-                <td class="cross">Yes</td>
-                <td>N/A</td>
-                <td class="check">Never</td>
-            </tr>
-            <tr>
-                <td>Setup Time</td>
-                <td>2-4 weeks</td>
-                <td>3-5 days</td>
-                <td class="check">48 hours</td>
-            </tr>
-        </tbody>
-    </table>
-    <p style="text-align:center; color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;">* Founder's Rate — limited to first 10 practices</p>
+<section class="section-full compare-section" id="compare">
+  <div class="section-label">Compare</div>
+  <h2>The math is<br>not close.</h2>
+  <p class="subtitle">See how Arxyn stacks up against hiring or traditional answering services.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Receptionist</th>
+        <th>Answering Service</th>
+        <th class="arxyn-col">Arxyn AI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Monthly Cost</td><td>$3,750+</td><td>$800–1,600</td><td class="arxyn-col check">$299/mo*</td></tr>
+      <tr><td>Available 24/7</td><td class="cross">No — 40hrs/wk</td><td>Yes</td><td class="arxyn-col check">Yes — always</td></tr>
+      <tr><td>Books Appointments</td><td class="check">Yes</td><td class="cross">Takes messages only</td><td class="arxyn-col check">Yes — real-time</td></tr>
+      <tr><td>Answer Speed</td><td>15–45 sec</td><td>30–90 sec</td><td class="arxyn-col check">&lt;2 seconds</td></tr>
+      <tr><td>Simultaneous Calls</td><td class="cross">1 at a time</td><td>Queue system</td><td class="arxyn-col check">Unlimited</td></tr>
+      <tr><td>Knows Your Practice</td><td class="check">Yes</td><td class="cross">Generic scripts</td><td class="arxyn-col check">Fully customized</td></tr>
+      <tr><td>Sick Days / Turnover</td><td class="cross">Yes</td><td>N/A</td><td class="arxyn-col check">Never</td></tr>
+      <tr><td>Setup Time</td><td>2–4 weeks</td><td>3–5 days</td><td class="arxyn-col check">48 hours</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px;color:var(--text-dim);margin-top:16px">* Founder's Rate — limited to first 10 practices</p>
 </section>
 
 <!-- PRICING -->
-<section class="pricing" id="pricing">
-    <div class="pricing-inner">
-        <h2>Simple, Predictable Pricing</h2>
-        <p>No per-minute fees. No surprise bills. One flat rate.</p>
-        <div class="price-card">
-            <div class="price-badge">Founder's Rate — Only 10 Spots</div>
-            <div class="price-amount">$299</div>
-            <div class="price-period">per month</div>
-            <ul class="price-features">
-                <li><span class="check-icon">✓</span> AI voice agent — answers calls 24/7/365</li>
-                <li><span class="check-icon">✓</span> 750 minutes included</li>
-                <li><span class="check-icon">✓</span> Appointment scheduling & rescheduling</li>
-                <li><span class="check-icon">✓</span> Patient FAQ handling</li>
-                <li><span class="check-icon">✓</span> Calendar & EHR integration</li>
-                <li><span class="check-icon">✓</span> Call recordings & transcripts</li>
-                <li><span class="check-icon">✓</span> Live in 48 hours</li>
-                <li><span class="check-icon">✓</span> Rate locked for 12 months</li>
-            </ul>
-            <a href="#cta" class="btn-primary">Claim Your Spot</a>
-        </div>
-    </div>
-</section>
-
-<!-- SOCIAL PROOF -->
-<section class="social-proof">
-    <p class="proof-quote">"We went from missing 35% of our calls to missing zero — in the first week. Our front desk can finally focus on the patients in front of them."</p>
-    <p class="proof-author">— Coming Soon</p>
-    <p class="proof-title">Your practice could be featured here</p>
+<section class="section-full pricing-section" id="pricing" style="border-top:1px solid var(--border)">
+  <div style="text-align:center">
+    <div class="section-label">Pricing</div>
+    <h2 style="text-align:center">Simple. Predictable.<br>No surprises.</h2>
+    <p class="subtitle" style="margin-left:auto;margin-right:auto;text-align:center">One flat rate. No per-minute fees. No hidden costs. Cancel anytime.</p>
+  </div>
+  <div class="price-card">
+    <div class="price-badge">Founder's Rate — Only 10 Spots Left</div>
+    <div class="price-amount">$299</div>
+    <div class="price-period">per month — locked for 12 months</div>
+    <ul class="price-features">
+      <li><i data-lucide="check"></i> AI voice agent — answers calls 24/7/365</li>
+      <li><i data-lucide="check"></i> 750 minutes included per month</li>
+      <li><i data-lucide="check"></i> Appointment scheduling & rescheduling</li>
+      <li><i data-lucide="check"></i> No-show reminders & confirmations</li>
+      <li><i data-lucide="check"></i> Patient FAQ handling</li>
+      <li><i data-lucide="check"></i> Calendar & EHR integration</li>
+      <li><i data-lucide="check"></i> Call recordings & transcripts</li>
+      <li><i data-lucide="check"></i> Live in under 48 hours</li>
+    </ul>
+    <a href="#cta" class="btn-primary" style="width:100%;justify-content:center;padding:20px"><i data-lucide="arrow-right"></i> Claim Your Spot</a>
+    <p class="price-note">Regular pricing starts at $399/mo after Founder's Rate spots fill</p>
+  </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta" id="cta">
-    <h2>See It Handle Your Patient Calls</h2>
-    <p>Book a 15-minute demo. We'll build a custom AI voice agent for your practice — live on the call. No pitch, no pressure.</p>
-    <a href="https://www.arxyn.com/contact" class="btn-primary">Book Your Demo</a>
-    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">Or email us: <a href="mailto:info@arxyn.com" style="color: #60a5fa;">info@arxyn.com</a></p>
+<section class="cta-section" id="cta">
+  <h2 style="position:relative;z-index:1">See it handle<br><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">your patient calls.</span></h2>
+  <p>Book a 15-minute demo. We'll build a custom AI agent for your practice — live on the call. No pitch, no pressure.</p>
+  <div style="position:relative;z-index:1;display:flex;gap:20px;flex-wrap:wrap;justify-content:center">
+    <a href="contact.html" class="btn-primary"><i data-lucide="calendar"></i> Book Your Demo</a>
+    <a href="mailto:info@arxyn.com" class="btn-secondary"><i data-lucide="mail"></i> info@arxyn.com</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <p>&copy; 2024-2026 Arxyn Inc. All rights reserved. | <a href="https://www.arxyn.com">Home</a> | <a href="https://www.arxyn.com/contact">Contact</a> | <a href="https://support.arxyn.com/support/solutions/articles/154000259498-privacy-policy">Privacy</a></p>
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2024–2026 Arxyn Inc. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://support.arxyn.com/support/solutions/articles/154000259498-privacy-policy">Privacy</a>
+    </div>
+  </div>
 </footer>
+
+<!-- LUCIDE ICONS -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+
+<!-- SCROLL ANIMATIONS -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+// Grid mouse follow
+const grid = document.querySelector('.hero-grid');
+if (grid) {
+  document.addEventListener('mousemove', e => {
+    grid.style.setProperty('--grid-x', e.clientX + 'px');
+    grid.style.setProperty('--grid-y', e.clientY + 'px');
+  });
+}
+</script>
 
 </body>
 </html>
